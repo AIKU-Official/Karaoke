@@ -35,6 +35,7 @@
 - 노래방 영상 완성: 이미지, no_vocals.wav, 가사, timestamp을 합쳐 최종 노래방 영상을 완성합니다.
 ### 모델 학습
 ![image](https://github.com/user-attachments/assets/8ebc3ca7-b310-4de2-998e-34e44dc62443)
+![image](https://github.com/user-attachments/assets/98e5a045-760b-41fb-8707-b7b7d80e7892)
 ## 환경 설정
 
 (Requirements, Anaconda, Docker 등 프로젝트를 사용하는데에 필요한 요구 사항을 나열해주세요)
