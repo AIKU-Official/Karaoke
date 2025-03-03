@@ -1,4 +1,4 @@
-# 프로젝트명
+# Karaoke
 
 📢 2025년 겨울학기 [AIKU](https://github.com/AIKU-Official) 활동으로 진행한 프로젝트입니다
 
@@ -56,6 +56,6 @@
 ## 팀원
   | 팀원                            | 역할                                       |
 | ----------------------------- | ---------------------------------------- |
-| [권도영](https://github.com/douyoung89) |   데이터 전처리 & 모델 fine-tuning    |
+| [권도영](https://github.com/douyoung89) |   dataset 전처리 & 모델 fine-tuning    |
 | [김민준](https://github.com/ddomjun)     |    dataset 수집/전처리 & 음원분리/영상변환   |
 | [구영서](https://github.com/andless2004)        |    dataset 수집 & 전체 pipeline 정리 & github 정리   |
