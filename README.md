@@ -18,6 +18,7 @@
 - 유튜브 음원(mp3) 분리: demucs 모델을 이용하여 mp3를 vocals.wav와 no_vocals.wav로 분리합니다.
   
 - 가사 & timestep 추출: Whisperx 모델을 통해 vocals.wav에서 가사와 timestamp을 추출합니다.
+  ![image](https://github.com/user-attachments/assets/47d2cd4e-0bd3-4504-9069-419b2cb5dc0b)
   - 기존에는 오디오 첫 30초만 듣고 language detecting 하여 해당하는 phoneme model을 선택했지만, 단어마다 language detecting 하여 phoneme model 선택하도록 변경
   - input audio :
     - wav file, 16000Hz sampling rate, monotype
@@ -36,6 +37,11 @@
 ### 모델 학습
 ![image](https://github.com/user-attachments/assets/8ebc3ca7-b310-4de2-998e-34e44dc62443)
 ![image](https://github.com/user-attachments/assets/98e5a045-760b-41fb-8707-b7b7d80e7892)
+- 100 epoch, lr 5e-5, ADAMW warmup 500 step,
+- WER :
+    - best model : 0.7
+    - latest model : 0.64
+- validation loss 가 가장 낮았던 checkpoint 를 최종적으로 선택
 ## 환경 설정
 
 (Requirements, Anaconda, Docker 등 프로젝트를 사용하는데에 필요한 요구 사항을 나열해주세요)
