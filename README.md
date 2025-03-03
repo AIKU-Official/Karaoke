@@ -7,7 +7,7 @@
 
 세상에는 많은 노래가 있고 부르고 싶은 노래도 많습니다. 그러나 노래방은 업데이트가 느립니다. 예능 프로그램에서 타가수나 유튜브에서 일반인이 커버한 노래 같은 경우는 큰 인기를 끌지 않은 이상 노래방에 들어오지 않습니다. 우리가 원하는 노래를 그때 그때 노래방 형태로 만들 수 있다면 어떨까요? 
 
-목표: 유튜브 링크를 넣었을 때 MR, 가사, 이미지가 하나의 영상으로 결과물이 나오는 것이 목표!
+목표: 유튜브 링크를 넣었을 때 정확한 MR, 가사, 이미지가 하나의 영상으로 잘 나오면 성공!
 
 ## 방법론
 ### 1. 모델링
@@ -34,7 +34,7 @@
   - output :
     - Transcript + word-level timestamps
 - 노래방 영상 완성: 이미지, no_vocals.wav, 가사, timestamp을 합쳐 최종 노래방 영상을 완성합니다.
-### 모델 학습
+### 2. 모델 학습
 ![image](https://github.com/user-attachments/assets/8ebc3ca7-b310-4de2-998e-34e44dc62443)
 ![image](https://github.com/user-attachments/assets/98e5a045-760b-41fb-8707-b7b7d80e7892)
 - 100 epoch, lr 5e-5, ADAMW warmup 500 step,
