@@ -41,6 +41,31 @@
     - best model : 0.7
     - latest model : 0.64
 - validation loss 가 가장 낮았던 checkpoint 를 최종적으로 선택
+
+## 결과
+
+validation loss 가 증가하려고 해서 overfitting 되었음을 확인 
+
+validation loss 가 가장 낮았던 checkpoint 를 최종적으로 선택 
+
+- 결과 분석
+    - 당신과는 천천히 (장범준)
+        - WER : 19.44 %
+        - CER : 9.02 %
+    - …사랑했잖아… (고경표)
+        - WER: 16.67%
+        - CER: 8.48%
+        - whoa 와 같은 추임새 제거 했을 때
+            - WER: 14.47%
+            - CER: 4.43%
+    - 봄여름가을겨울 (빅뱅)
+        - WER: 50.23%
+        - CER: 30.60%
+            - la la la → 랄랄라 랄라라 랄라라
+            - 가을 타 → 카이 타
+            - 비스듬히 씩 → 비스듬식
+            - 노래를 부를 때 생략하거나 과장되게 가사를 부르는 경우일수록 WER, CER 이 높았음
+
 ## 환경 설정
 
 (Requirements, Anaconda, Docker 등 프로젝트를 사용하는데에 필요한 요구 사항을 나열해주세요)
