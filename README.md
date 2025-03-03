@@ -10,12 +10,28 @@
 목표: 유튜브 링크를 넣었을 때 MR, 가사, 이미지가 하나의 영상으로 결과물이 나오는 것이 목표!
 
 ## 방법론
-### 파이프라인
-크롤링: 유튜브 링크를 통해 제목과 mp3파일을 가져옵니다.
-이미지 생성: DALLE에 유튜브 영상 제목을 prompt로 넣어 배경 이미지를 생성합니다.
-유튜브 음원(mp3) 분리: demucs 모델을 이용하여 mp3를 vocals.wav와 no_vocals.wav로 분리합니다.
-가사 & timestep 추출: Whisperx 모델을 통해 vocals.wav에서 가사와 timestep을 추출합니다.
-노래방 영상 완성: 이미지, no_vocals.wav, 가사, timestep을 합쳐 최종 노래방 영상을 완성합니다.
+### 1. 모델링
+- 크롤링: 유튜브 링크를 통해 제목과 mp3파일을 가져옵니다.
+  
+- 이미지 생성: DALLE에 유튜브 영상 제목을 prompt로 넣어 배경 이미지를 생성합니다.
+  
+- 유튜브 음원(mp3) 분리: demucs 모델을 이용하여 mp3를 vocals.wav와 no_vocals.wav로 분리합니다.
+  
+- 가사 & timestep 추출: Whisperx 모델을 통해 vocals.wav에서 가사와 timestep을 추출합니다.
+  - 기존에는 오디오 첫 30초만 듣고 language detecting 하여 해당하는 phoneme model을 선택했지만, 30초마다 language detecting 하여 phoneme model 선택하도록 변경
+  - input audio :
+    - wav file 형태, 16000Hz sampling rate, monotype
+    - demucs 에서 분리한 vocal audio 가 들어가게 된다
+  - VAD :
+    - audio 파일 안에서 인간의 목소리가 나오는 부분을 추출한다
+    - 일정 길이(10-30초)에 맞춰서 오디오를 잘라서 chunk 를 만든다
+  - Whisper :
+    - audio chunk 를 넣어서 transcript 생성
+  - Phoneme model :
+    - audio chunk 를 넣어서 transcript & time stamp 생성
+  - Forced alignment
+    - whisper, phoneme model 의 결과물을 비교하여 정렬 과정 수행
+- 노래방 영상 완성: 이미지, no_vocals.wav, 가사, timestep을 합쳐 최종 노래방 영상을 완성합니다.
 ### 모델 학습
 
 ## 환경 설정
