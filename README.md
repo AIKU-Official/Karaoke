@@ -79,6 +79,7 @@ validation loss 가 가장 낮았던 checkpoint 를 최종적으로 선택
 ```
 .env
 ```
+```
 OPEN_API_KEY="your_api_key"
 ```
 
