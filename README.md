@@ -72,9 +72,9 @@ validation loss 가 가장 낮았던 checkpoint 를 최종적으로 선택
 
 ## 사용 방법
 
-- youtube 검색을 위해 쿠키 파일이 필요합니다. Netscape 쿠키를 `cookies.txt`에 저장해 주시길 바랍니다.
+- youtube 검색을 위해 쿠키 파일이 필요합니다. Netscape 쿠키를 `cookies.txt`에 저장하여 사용할 수 있습니다.
 
-- Dall-E 사용을 위한 API 키가 필요합니다. `.env` 파일 생성 후, `OPENAI_API_KEY`로 지정해주면 됩니다.
+- Dall-E 사용을 위한 API 키가 필요합니다. `.env` 파일 생성 후, `OPENAI_API_KEY`로 지정하면 됩니다.
 
 ```
 OPEN_API_KEY="your_api_key"
