@@ -77,9 +77,6 @@ validation loss 가 가장 낮았던 checkpoint 를 최종적으로 선택
 - Dall-E 사용을 위한 API 키가 필요합니다. `.env` 파일 생성 후, `OPENAI_API_KEY`로 지정해주면 됩니다.
 
 ```
-.env
-```
-```
 OPEN_API_KEY="your_api_key"
 ```
 
