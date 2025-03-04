@@ -68,16 +68,16 @@ validation loss 가 가장 낮았던 checkpoint 를 최종적으로 선택
 
 ## 환경 설정
 
-environment.yml 및 requirements.txt 참고해 주시길 바랍니다.
+`environment.yml` 및 `requirements.txt` 참고해 주시길 바랍니다.
 
 ## 사용 방법
 
-youtube 검색을 위해 쿠키 파일이 필요합니다.
-Netscape 쿠키를 cookies.txt에 저장해 주시길 바랍니다.
+- youtube 검색을 위해 쿠키 파일이 필요합니다. Netscape 쿠키를 `cookies.txt`에 저장해 주시길 바랍니다.
 
-Dall-E 사용을 위한 API 키가 필요합니다.
-.env 파일 생성 후, OPENAI_API_KEY로 지정해주면 됩니다.
+- Dall-E 사용을 위한 API 키가 필요합니다. `.env` 파일 생성 후, `OPENAI_API_KEY`로 지정해주면 됩니다.
 
+```
+.env
 ```
 OPEN_API_KEY="your_api_key"
 ```
@@ -89,7 +89,10 @@ $ python main.py
 
 ## 예시 결과
 
-(사용 방법을 실행했을 때 나타나는 결과나 시각화 이미지를 보여주세요)
+<p align="center">
+<img src="https://github.com/user-attachments/assets/2d5074f1-b0b6-4ce7-a1d4-b89a6fc5c0a4" width="49%">
+<img src="https://github.com/user-attachments/assets/d50bba40-df24-408f-bb0c-f6b3ec79ea8b" width="49%">
+</p>
 
 ## 팀원
   | 팀원                            | 역할                                       |
