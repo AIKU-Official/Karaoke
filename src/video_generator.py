@@ -11,7 +11,7 @@ from src.config import OPENAI_API_KEY
 class VideoGenerator:
     def __init__(self, inf_dir, video_title, lyrics, timestamps):
         self.inf_dir = inf_dir
-        self.prompt = video_title
+        self.prompt = f"Here is the title of a video that includes a song. Please generate an image that matches the mood of the song.:\n{video_title}"
         self.image_path = ""
         self.lyrics = lyrics
         self.timestamps = timestamps
@@ -104,7 +104,7 @@ class VideoGenerator:
         final_clip = CompositeVideoClip([background_clip, *text_clips]).set_audio(audio_clip)
 
         # === 영상 파일 내보내기 ===
-        final_clip.write_videofile(f"{self.inf_dir}/{self.prompt}.mp4", fps=24)
+        final_clip.write_videofile(f"{self.inf_dir}/output.mp4", fps=24)
         
     def process_all(self):
         self.generate_image()

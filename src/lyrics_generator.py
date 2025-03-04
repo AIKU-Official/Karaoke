@@ -1,4 +1,4 @@
-from src import whisperx
+import whisperx
 import torch
 from itertools import chain
 import json
@@ -20,14 +20,16 @@ class LyricsGenerator:
         self.word = []
         self.sentence_ts = []
         self.word_ts = []
-        
-    def transcribe(self):        
+    
+    # whisper
+    def transcribe(self):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"Using device: {self.device}")
         compute_type = "float32"
         whisper_model = "large-v2"
         vocal_file = self.inf_dir + "/mdx_extra/audio/vocals.wav"
         
+        # 모델 로드드
         self.model = whisperx.load_model(whisper_model, self.device, device_index=self.gpu_id, compute_type=compute_type)
         self.audio = whisperx.load_audio(vocal_file)
         
@@ -36,6 +38,7 @@ class LyricsGenerator:
         print("Before alignment, just whisper: ")
         print(self.transcript["segments"])
     
+    # alignment
     def alignment(self):
         result = []
         
@@ -51,12 +54,10 @@ class LyricsGenerator:
         with open(self.json_path, "w", encoding="utf-8") as f:
             json.dump(output, f, indent=4, ensure_ascii=False)
         
-        print(f"{self.json_path}이 저장되었습니다. ")
+        print(f"Save {self.json_path}")
 
+    # JSON 데이터를 불러와 단어의 timestamp를 기준으로 10초 단위로 문장 분할
     def load_json(self, interval=10):
-        """
-        JSON 데이터를 불러와 단어의 timestamp를 기준으로 10초 단위로 문장을 나눕니다.
-        """
         with open(self.json_path, "r", encoding="utf-8") as f:
             json_data = json.load(f)
         
@@ -96,18 +97,8 @@ class LyricsGenerator:
                 "words": current_segment
             })
 
-
+    # 문자열이 특정 길이를 초과하면 띄어쓰기 부분을 기준으로 개행 문자 삽입
     def json_to_lyrics(self, max_length=30):
-        """
-        문자열이 특정 길이를 초과하면 띄어쓰기 부분을 기준으로 개행 문자를 삽입하는 함수.
-
-        Args:
-            sentences (list): 변환할 문자열 리스트
-            max_length (int): 최대 허용 길이 (기본값: 30)
-
-        Returns:
-            list: 개행이 삽입된 문자열 리스트
-        """
         sentences = [str(segment["text"]) for segment in self.segments]
         for text in sentences:
             if len(text) > max_length:
@@ -130,7 +121,7 @@ class LyricsGenerator:
                 
         self.word = [str(word["word"]) for segment in self.segments for word in segment["words"]]
         
-        # time stamp from json 
+        # 타임스탬프
         self.sentence_ts = [(segment["start"], segment["end"]) for segment in self.segments]
         self.word_ts = [(word["start"], word['end']) for segment in self.segments for word in segment["words"]]
         
@@ -145,4 +136,3 @@ class LyricsGenerator:
         timestamps = self.sentence_ts # or word_ts 
         
         return lyrics, timestamps
-        
