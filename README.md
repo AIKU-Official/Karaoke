@@ -68,11 +68,24 @@ validation loss 가 가장 낮았던 checkpoint 를 최종적으로 선택
 
 ## 환경 설정
 
-(Requirements, Anaconda, Docker 등 프로젝트를 사용하는데에 필요한 요구 사항을 나열해주세요)
+environment.yml 및 requirements.txt 참고해 주시길 바랍니다.
 
 ## 사용 방법
 
-(프로젝트 실행 방법 (명령어 등)을 적어주세요.)
+youtube 검색을 위해 쿠키 파일이 필요합니다.
+Netscape 쿠키를 cookies.txt에 저장해 주시길 바랍니다.
+
+Dall-E 사용을 위한 API 키가 필요합니다.
+.env 파일 생성 후, OPENAI_API_KEY로 지정해주면 됩니다.
+
+```
+OPEN_API_KEY="your_api_key"
+```
+
+main.py를 실행한 후 youtube url 또는 쿼리를 넣어 노래방 영상을 생성할 수 있습니다.
+```
+$ python main.py
+```
 
 ## 예시 결과
 
